@@ -42,7 +42,7 @@ This project uses a small, opinionated toolchain focused on fast feedback and si
 - **Vitest [4.0.16]**: Test runner for verifying each day’s solution and enabling fast TDD for puzzle code.
 - **Biome [2.3.10]**: Unified linter and formatter, used both in apps and shared configuration packages.
 - **Turbo [2.7.1]**: Task orchestrator for running scripts (tests, linting, builds) efficiently across the monorepo.
-- **ts-node [10.9.2]**: Convenient TypeScript execution in development for running the CLI without a separate build step.
+- **tsx [4.21.0]**: Convenient TypeScript execution in development for running the CLI without a separate build step.
 
 ## Quick setup
 

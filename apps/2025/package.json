@@ -1,11 +1,11 @@
 {
-  "name": "advent-of-code-2025-edition",
+  "name": "2025",
   "author": "Piotr 'Ugz' Bielski",
   "version": "0.0.1",
   "main": "src/cli.ts",
   "scripts": {
     "build": "echo \"Error: no build specified\" && exit 1",
-    "dev": "ts-node src/cli.ts",
+    "dev": "tsx src/cli.ts",
     "test": "vitest",
     "check-types": "tsc --noEmit",
     "lint": "biome lint ./*",
