@@ -1,0 +1,21 @@
+{
+  "name": "advent-of-code-2025-edition",
+  "author": "Piotr 'Ugz' Bielski",
+  "version": "0.0.1",
+  "main": "src/cli.ts",
+  "scripts": {
+    "build": "echo \"Error: no build specified\" && exit 1",
+    "dev": "ts-node src/cli.ts",
+    "test": "vitest",
+    "check-types": "tsc --noEmit",
+    "lint": "biome lint ./*",
+    "lint-fix": "biome check --write .",
+    "format": "biome format --write ."
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "@aoc/vitest-config": "workspace:*",
+    "@aoc/biome-config": "workspace:*"
+  }
+}

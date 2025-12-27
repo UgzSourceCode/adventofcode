@@ -1,0 +1,7 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./apps/2025" },
+    { "path": "./packages/vitest-config" }
+  ]
+}

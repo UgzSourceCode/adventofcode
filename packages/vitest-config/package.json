@@ -1,0 +1,17 @@
+{
+  "name": "@aoc/vitest-config",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "biome lint ./*",
+    "lint-fix": "biome check --write .",
+    "format": "biome format --write ./*"
+  },
+  "exports": {
+    "./base": "./base.js"
+  },
+  "devDependencies": {
+    "@aoc/biome-config": "workspace: *"
+  }
+}
