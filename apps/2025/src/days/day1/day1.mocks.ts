@@ -7,7 +7,7 @@ const partiallyFirstStarResult = [50, 82, 52, 0, 95, 55, 0, 99, 0, 14, 32];
 
 const finallyFirstStarResult = 3;
 
-const dialOperation = [
+const dialOperations = [
   {
     direction: RotationDirection.Left,
     number: 68,
@@ -56,7 +56,7 @@ const finallySecondStarResult = 6;
 
 export const day1Mocks = {
   inputData,
-  dialOperation,
+  dialOperation: dialOperations,
   firstStar: {
     partiallyResult: partiallyFirstStarResult,
     finallyResult: finallyFirstStarResult,

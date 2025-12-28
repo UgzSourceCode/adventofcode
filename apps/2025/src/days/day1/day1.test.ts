@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test } from "vitest";
+import {beforeEach, describe, expect, test} from "vitest";
 import {
   calculatePositions,
   calculatePositionsWithAdditionalZeroPoint,
@@ -7,7 +7,8 @@ import {
   readDataFromString,
   secondStar,
 } from "./day1";
-import { day1Mocks } from "./day1.mocks";
+import {day1Mocks} from "./day1.mocks";
+import {RotationDirection} from "./day1.types";
 
 describe("Test for day 1", () => {
   let mocks: typeof day1Mocks;
@@ -44,5 +45,14 @@ describe("Test for day 1", () => {
   test("Check second star result", () => {
     const result = secondStar(mocks.inputData);
     expect(result).toBe(mocks.secondStar.finallyResult);
+  });
+
+  test("Check how many times you see zero point", () => {
+    const result = calculatePositionsWithAdditionalZeroPoint([{
+      direction: RotationDirection.Right,
+      number: 1000,
+    }]);
+    const hasBeenZeroPoint = result.filter((position) => position === 0).length;
+    expect(hasBeenZeroPoint).toBe(10);
   });
 });
