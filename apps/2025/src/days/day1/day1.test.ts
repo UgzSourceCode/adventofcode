@@ -1,5 +1,16 @@
-import { expect, test } from "vitest";
+import { expect, test, describe, beforeEach } from "vitest";
+import { readDataFromString } from "./day1";
+import { day1Mocks } from "./day1.mocks";
 
-test("Check day 1 first star task", () => {
-  expect(1).toBe(2);
+describe("Test for day 1", () => {
+  let mocks: typeof day1Mocks;
+
+  beforeEach(() => {
+    mocks = day1Mocks;
+  });
+
+  test("Check reading data", () => {
+    const data = readDataFromString(mocks.inputData);
+    expect(data).toStrictEqual(mocks.preStep);
+  });
 });
