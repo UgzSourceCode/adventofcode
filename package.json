@@ -16,7 +16,6 @@
   "pnpm": {
     "overrides": {
       "@biomejs/biome": "2.3.10",
-      "ts-node": "10.9.2",
       "turbo": "2.7.1",
       "typescript": "5.9.3",
       "vitest": "4.0.16"
@@ -24,7 +23,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.10",
-    "ts-node": "10.9.2",
     "tsx": "4.21.0",
     "turbo": "2.7.1",
     "typescript": "5.9.3",

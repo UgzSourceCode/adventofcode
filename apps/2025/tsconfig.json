@@ -1,5 +1,5 @@
 {
-  "extends": "@aoc/typescript-config/base",
+  "extends": "@aoc/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",

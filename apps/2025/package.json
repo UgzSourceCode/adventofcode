@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@aoc/vitest-config": "workspace:*",
-    "@aoc/biome-config": "workspace:*"
+    "@aoc/biome-config": "workspace:*",
+    "@aoc/typescript-config": "workspace:*"
   }
 }
