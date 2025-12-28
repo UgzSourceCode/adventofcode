@@ -40,6 +40,10 @@ export const calculatePositions = (dialData: DialOperation[]) => {
   return positions;
 };
 
+export const detectPassword = (possitions: number[]) => {
+    throw new Error("Not implemented");
+};
+
 const firstStar = () => {};
 
 const secondStar = () => {};

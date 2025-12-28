@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "vitest";
-import { calculatePositions, readDataFromString } from "./day1";
+import {calculatePositions, detectPassword, readDataFromString} from "./day1";
 import { day1Mocks } from "./day1.mocks";
 
 describe("Test for day 1", () => {
@@ -17,5 +17,10 @@ describe("Test for day 1", () => {
   test("Check calculated positions", () => {
     const positions = calculatePositions(mocks.preStep);
     expect(positions).toStrictEqual(mocks.firstStar.partiallyResult);
+  });
+
+  test("Check detected password", () => {
+    const password = detectPassword(mocks.firstStar.partiallyResult);
+    expect(password).toBe(mocks.firstStar.finallyResult);
   });
 });
