@@ -50,7 +50,9 @@ export const detectPassword = (positions: number[]) => {
 
 export const firstStar = (data: string) => {
   const dialOperations = readDataFromString(data);
-  throw new Error("Not implemented");
+  const positions = calculatePositions(dialOperations);
+
+  return detectPassword(positions);
 };
 
 const secondStar = () => {};
