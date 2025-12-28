@@ -32,6 +32,9 @@ importers:
 
   apps/2025:
     dependencies:
+      '@aoc/aoc-utils':
+        specifier: workspace:*
+        version: link:../../packages/aoc-utils
       '@aoc/biome-config':
         specifier: workspace:*
         version: link:../../packages/biome-config

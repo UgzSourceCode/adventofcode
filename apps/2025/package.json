@@ -17,6 +17,7 @@
   "dependencies": {
     "@aoc/vitest-config": "workspace:*",
     "@aoc/biome-config": "workspace:*",
-    "@aoc/typescript-config": "workspace:*"
+    "@aoc/typescript-config": "workspace:*",
+    "@aoc/aoc-utils": "workspace:*"
   }
 }

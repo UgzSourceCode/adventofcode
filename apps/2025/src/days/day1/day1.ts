@@ -1,7 +1,11 @@
+import { getInputFromAdventOfCode } from "@aoc/aoc-utils";
 import { type DialOperation, RotationDirection } from "./day1.types";
 
+const INPUT_LINK = "https://adventofcode.com/2025/day/1/input";
+
 export const day1 = () => {
-  firstStar();
+  const inputData = getInputFromAdventOfCode("secret", INPUT_LINK);
+  firstStar(inputData);
   secondStar();
 };
 
@@ -44,6 +48,8 @@ export const detectPassword = (positions: number[]) => {
   return positions.reduce((acc, currentPosition) => acc + (currentPosition === 0 ? 1 : 0), 0);
 };
 
-const firstStar = () => {};
+const firstStar = (data: string) => {
+  const dialOperations = readDataFromString(data);
+};
 
 const secondStar = () => {};
