@@ -63,18 +63,25 @@ export const calculatePositionsWithAdditionalZeroPoint = (dialOperations: DialOp
 
   dialOperations.forEach((dialOperation) => {
     if (dialOperation.direction === RotationDirection.Left) {
-      hasTouchedZeroPoint = (currentPosition !== 0 && (currentPosition - dialOperation.number) < 0) || (currentPosition === 0 && dialOperation.number > MAX_POSITION);
+      hasTouchedZeroPoint =
+        (currentPosition !== 0 && currentPosition - dialOperation.number < 0) ||
+        (currentPosition === 0 && dialOperation.number > MAX_POSITION);
       currentPosition = (MODULO + (currentPosition - (dialOperation.number % MODULO))) % MODULO;
     } else {
-      hasTouchedZeroPoint = (currentPosition !== 0 && (currentPosition + dialOperation.number) > MAX_POSITION) || (currentPosition === 0 && dialOperation.number > MAX_POSITION);
+      hasTouchedZeroPoint =
+        (currentPosition !== 0 && currentPosition + dialOperation.number > MAX_POSITION) ||
+        (currentPosition === 0 && dialOperation.number > MAX_POSITION);
       currentPosition = (currentPosition + dialOperation.number) % MODULO;
     }
-    positions.push(hasTouchedZeroPoint? 0 : currentPosition);
+    positions.push(hasTouchedZeroPoint ? 0 : currentPosition);
   });
 
   return positions;
 };
 
-export const secondStar = (_data: string) => {
-  throw new Error("Not implemented");
+export const secondStar = (data: string) => {
+  const dialOperations = readDataFromString(data);
+  const positions = calculatePositionsWithAdditionalZeroPoint(dialOperations);
+
+  return detectPassword(positions);
 };
