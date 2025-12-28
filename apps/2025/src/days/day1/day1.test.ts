@@ -11,11 +11,11 @@ describe("Test for day 1", () => {
 
   test("Check reading data", () => {
     const data = readDataFromString(mocks.inputData);
-    expect(data).toStrictEqual(mocks.preStep);
+    expect(data).toStrictEqual(mocks.dialOperation);
   });
 
   test("Check calculated positions", () => {
-    const positions = calculatePositions(mocks.preStep);
+    const positions = calculatePositions(mocks.dialOperation);
     expect(positions).toStrictEqual(mocks.firstStar.partiallyResult);
   });
 
