@@ -5,6 +5,10 @@ export const day1 = () => {
   secondStar();
 };
 
+const INITIAL_POSITION = 50;
+const MAX_POSITION = 99;
+const MIN_POSITION = 0;
+
 export const readDataFromString = (data: string): DialOperation[] => {
   return data.split("\n").filter(line => line !== "").map((line: string, id): DialOperation => {
     if (line.startsWith("R") && line.startsWith("L")) {
@@ -17,6 +21,10 @@ export const readDataFromString = (data: string): DialOperation[] => {
     };
   });
 };
+
+export const calculatePositions = (dialData: DialOperation[]) => {
+  throw new Error("Not implemented");
+}
 
 const firstStar = () => {};
 
