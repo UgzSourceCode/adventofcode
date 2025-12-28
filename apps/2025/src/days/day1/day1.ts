@@ -3,9 +3,10 @@ import { type DialOperation, RotationDirection } from "./day1.types";
 
 const INPUT_LINK = "https://adventofcode.com/2025/day/1/input";
 
-export const day1 = () => {
-  const inputData = getInputFromAdventOfCode("secret", INPUT_LINK);
-  firstStar(inputData);
+export const day1 = async () => {
+  console.log("--- DAY 1 ---");
+  const inputData = await getInputFromAdventOfCode(INPUT_LINK);
+  console.log(`Result for first star is '${firstStar(inputData)}'.`);
   secondStar();
 };
 

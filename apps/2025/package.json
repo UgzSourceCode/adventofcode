@@ -5,7 +5,7 @@
   "main": "src/cli.ts",
   "scripts": {
     "build": "echo \"Error: no build specified\" && exit 1",
-    "dev": "tsx src/cli.ts",
+    "dev": "tsx -r dotenv/config src/cli.ts",
     "test": "vitest",
     "check-types": "tsc --noEmit",
     "lint": "biome lint ./*",
@@ -18,6 +18,7 @@
     "@aoc/vitest-config": "workspace:*",
     "@aoc/biome-config": "workspace:*",
     "@aoc/typescript-config": "workspace:*",
-    "@aoc/aoc-utils": "workspace:*"
+    "@aoc/aoc-utils": "workspace:*",
+    "dotenv": "17.2.3"
   }
 }
