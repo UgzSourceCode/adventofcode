@@ -48,8 +48,9 @@ export const detectPassword = (positions: number[]) => {
   return positions.reduce((acc, currentPosition) => acc + (currentPosition === 0 ? 1 : 0), 0);
 };
 
-const firstStar = (data: string) => {
+export const firstStar = (data: string) => {
   const dialOperations = readDataFromString(data);
+  throw new Error("Not implemented");
 };
 
 const secondStar = () => {};
