@@ -7,7 +7,7 @@ export const day1 = async () => {
   console.log("--- DAY 1 ---");
   const inputData = await getInputFromAdventOfCode(INPUT_LINK);
   console.log(`Result for first star is '${firstStar(inputData)}'.`);
-  secondStar();
+  console.log(`Result for second star is '${secondStar(inputData)}'.`);
 };
 
 const INITIAL_POSITION = 50;
@@ -56,4 +56,10 @@ export const firstStar = (data: string) => {
   return detectPassword(positions);
 };
 
-const secondStar = () => {};
+export const calculatePositionsWithAdditionalZeroPoint = (_dialOperations: DialOperation[]) => {
+  throw new Error("Not implemented");
+};
+
+export const secondStar = (_data: string) => {
+  throw new Error("Not implemented");
+};
