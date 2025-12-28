@@ -1,4 +1,4 @@
-import { DialOperation, RotationDirection } from "./day1.types";
+import { type DialOperation, RotationDirection } from "./day1.types";
 
 export const day1 = () => {
   firstStar();
@@ -13,7 +13,7 @@ export const readDataFromString = (data: string): DialOperation[] => {
   return data
     .split("\n")
     .filter((line) => line !== "")
-    .map((line: string, id): DialOperation => {
+    .map((line: string): DialOperation => {
       if (line.startsWith("R") && line.startsWith("L")) {
         throw new Error("2025: Day 1: Wrong direction character");
       }
