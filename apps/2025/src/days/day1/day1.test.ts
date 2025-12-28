@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test } from "vitest";
-import {calculatePositions, detectPassword, readDataFromString} from "./day1";
+import { calculatePositions, detectPassword, readDataFromString } from "./day1";
 import { day1Mocks } from "./day1.mocks";
 
 describe("Test for day 1", () => {
