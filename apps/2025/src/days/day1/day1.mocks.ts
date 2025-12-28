@@ -20,7 +20,7 @@ export const day1Mocks = {
     },
     {
       direction: RotationDirection.Right,
-      number: 48
+      number: 48,
     },
     {
       direction: RotationDirection.Left,
@@ -49,7 +49,7 @@ export const day1Mocks = {
     {
       direction: RotationDirection.Left,
       number: 82,
-    }
+    },
   ],
   firstStar: {
     partiallyResult: partiallyFirstStarResult,
