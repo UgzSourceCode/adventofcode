@@ -58,22 +58,21 @@ export const firstStar = (data: string) => {
 
 export const calculatePositionsWithAdditionalZeroPoint = (dialOperations: DialOperation[]) => {
   let currentPosition = INITIAL_POSITION;
-  let hasTouchedZeroPoint = false;
   const positions: number[] = [50];
 
   dialOperations.forEach((dialOperation) => {
+    let howManyZeroPoints = 0;
+
     if (dialOperation.direction === RotationDirection.Left) {
-      hasTouchedZeroPoint =
-        (currentPosition !== 0 && currentPosition - dialOperation.number < 0) ||
-        (currentPosition === 0 && dialOperation.number > MAX_POSITION);
-      currentPosition = (MODULO + (currentPosition - (dialOperation.number % MODULO))) % MODULO;
+      howManyZeroPoints = ((currentPosition - dialOperation.number) * -1) / MODULO;
     } else {
-      hasTouchedZeroPoint =
-        (currentPosition !== 0 && currentPosition + dialOperation.number > MAX_POSITION) ||
-        (currentPosition === 0 && dialOperation.number > MAX_POSITION);
-      currentPosition = (currentPosition + dialOperation.number) % MODULO;
+      howManyZeroPoints = (currentPosition + dialOperation.number) / MODULO;
     }
-    positions.push(hasTouchedZeroPoint ? 0 : currentPosition);
+    positions.push(...Array(Math.floor(howManyZeroPoints)).fill(0));
+
+    currentPosition = (dialOperation.direction === RotationDirection.Left)? (MODULO + (currentPosition - (dialOperation.number % MODULO))) % MODULO : (currentPosition + dialOperation.number) % MODULO;
+
+    positions.push(currentPosition);
   });
 
   return positions;
