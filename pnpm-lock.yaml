@@ -42,6 +42,18 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vitest-config
 
+  packages/aoc-utils:
+    dependencies:
+      '@aoc/biome-config':
+        specifier: workspace:*
+        version: link:../biome-config
+      '@aoc/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@aoc/vitest-config':
+        specifier: workspace:*
+        version: link:../vitest-config
+
   packages/biome-config:
     devDependencies:
       '@biomejs/biome':

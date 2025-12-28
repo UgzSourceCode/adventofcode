@@ -1,0 +1,1 @@
+export { getInputFromAdventOfCode } from "./input";
