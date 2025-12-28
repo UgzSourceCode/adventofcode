@@ -56,8 +56,23 @@ export const firstStar = (data: string) => {
   return detectPassword(positions);
 };
 
-export const calculatePositionsWithAdditionalZeroPoint = (_dialOperations: DialOperation[]) => {
-  throw new Error("Not implemented");
+export const calculatePositionsWithAdditionalZeroPoint = (dialOperations: DialOperation[]) => {
+  let currentPosition = INITIAL_POSITION;
+  let hasTouchedZeroPoint = false;
+  const positions: number[] = [50];
+
+  dialOperations.forEach((dialOperation) => {
+    if (dialOperation.direction === RotationDirection.Left) {
+      hasTouchedZeroPoint = (currentPosition !== 0 && (currentPosition - dialOperation.number) < 0) || (currentPosition === 0 && dialOperation.number > MAX_POSITION);
+      currentPosition = (MODULO + (currentPosition - (dialOperation.number % MODULO))) % MODULO;
+    } else {
+      hasTouchedZeroPoint = (currentPosition !== 0 && (currentPosition + dialOperation.number) > MAX_POSITION) || (currentPosition === 0 && dialOperation.number > MAX_POSITION);
+      currentPosition = (currentPosition + dialOperation.number) % MODULO;
+    }
+    positions.push(hasTouchedZeroPoint? 0 : currentPosition);
+  });
+
+  return positions;
 };
 
 export const secondStar = (_data: string) => {
