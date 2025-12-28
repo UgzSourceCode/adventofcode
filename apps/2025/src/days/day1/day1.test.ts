@@ -1,4 +1,6 @@
 import { beforeEach, describe, expect, test } from "vitest";
+import { day1Mocks } from "./day1.mocks";
+import { RotationDirection } from "./day1.types";
 import {
   calculatePositions,
   calculatePositionsWithAdditionalZeroPoint,
@@ -6,9 +8,7 @@ import {
   firstStar,
   readDataFromString,
   secondStar,
-} from "./day1";
-import { day1Mocks } from "./day1.mocks";
-import { RotationDirection } from "./day1.types";
+} from "./index";
 
 describe("Tests for day 1", () => {
   let mocks: typeof day1Mocks;

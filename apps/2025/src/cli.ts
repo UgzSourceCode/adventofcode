@@ -1,6 +1,8 @@
 import { loadEnv } from "@aoc/aoc-utils";
-import { day1 } from "./days/day1/day1";
+import { day1, day2 } from "./days";
 
 console.log("Running Advent of Code - 2025");
 loadEnv();
-day1();
+day1().then(() => {
+  day2();
+});

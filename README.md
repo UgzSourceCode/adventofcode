@@ -13,10 +13,10 @@ The overall monorepo layout is shown in the diagram below.
 │ ├── src/
 │ │ ├── cli.ts # Main entrypoint for running selected day
 │ │ └── days/
-│ │ └── day1/
-│ │ ├── day1.ts # Day 1 puzzle solution
-│ │ ├── day1.mocks.ts # Data/mocks for Day 1
-│ │ └── day1.test.ts # Tests for Day 1
+│ │ └── index/
+│ │ ├── index.ts # Day 1 puzzle solution
+│ │ ├── index.mocks.ts # Data/mocks for Day 1
+│ │ └── index.test.ts # Tests for Day 1
 │ ├── biome.json # Biome config extending shared settings
 │ ├── tsconfig.json # TS config extending shared settings
 │ ├── vitest.config.ts # Vitest config extending shared settings
@@ -91,7 +91,7 @@ pnpm test
 
 - Run tests for a single day by targeting its test file - for example
 ```bash
-pnpm vitest ./apps/2025/src/days/day1/day1.test.ts
+pnpm vitest ./apps/2025/src/days/index/index.test.ts
 ```
 
 ### Run apps
@@ -111,9 +111,9 @@ pnpm --filter 2025 dev --day 1
 ## Development workflow
 
 This section describes the typical day‑to‑day loop when working on new Advent of Code solutions in this monorepo.
-- Start by adding or extending a day module under `apps/2025/src/days/` (for example `day2/day2.ts` and `day2.test.ts`).
+- Start by adding or extending a day module under `apps/2025/src/days/` (for example `index/index.ts` and `index.test.ts`).
 - Use the CLI to run your solution for a given day while iterating on the implementation (for example `pnpm --filter 2025 dev --day 2`).
-- Keep tests close to the implementation and run them frequently (for example `pnpm vitest ./apps/2025/src/days/day2/day2.test.ts`).
+- Keep tests close to the implementation and run them frequently (for example `pnpm vitest ./apps/2025/src/days/index/index.test.ts`).
 - Before committing, run formatting and linting for the relevant app to keep the codebase consistent (for example `pnpm --filter 2025 lint` and `pnpm --filter 2025 format`).
 - When changes affect shared configs in `packages/*`, re‑run tests and checks for the apps that depend on those packages to ensure nothing broke.
 
