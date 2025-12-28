@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "echo \"Error: no build specified\" && exit 1",
-    "dev": "tsx src/cli.ts",
+    "dev": "tsx src/index.ts",
     "test": "vitest",
     "check-types": "tsc --noEmit",
     "lint": "biome lint ./*",
