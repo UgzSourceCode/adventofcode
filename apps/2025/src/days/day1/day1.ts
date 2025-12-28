@@ -11,6 +11,7 @@ export const day1 = async () => {
 };
 
 const INITIAL_POSITION = 50;
+const MIN_POSITION = 0;
 const MAX_POSITION = 99;
 const MODULO = MAX_POSITION + 1;
 
@@ -32,7 +33,7 @@ export const readDataFromString = (data: string): DialOperation[] => {
 
 export const calculatePositions = (dialData: DialOperation[]) => {
   let currentPosition = INITIAL_POSITION;
-  const positions: number[] = [50];
+  const positions: number[] = [INITIAL_POSITION];
   dialData.forEach((dialOperation) => {
     currentPosition =
       dialOperation.direction === RotationDirection.Left
@@ -58,23 +59,32 @@ export const firstStar = (data: string) => {
 
 export const calculatePositionsWithAdditionalZeroPoint = (dialOperations: DialOperation[]) => {
   let currentPosition = INITIAL_POSITION;
-  const positions: number[] = [50];
+  const positions: number[] = [INITIAL_POSITION];
 
   dialOperations.forEach((dialOperation) => {
-    let howManyZeroPoints = 0;
+    let newPosition = currentPosition;
+    for (let i = 0; i < dialOperation.number; i += 1) {
+      if (dialOperation.direction === RotationDirection.Left) {
+        newPosition -= 1;
+      } else {
+        newPosition += 1;
+      }
 
-    if (dialOperation.direction === RotationDirection.Left) {
-      howManyZeroPoints = ((currentPosition - dialOperation.number) * -1) / MODULO;
-    } else {
-      howManyZeroPoints = (currentPosition + dialOperation.number) / MODULO;
+      if (newPosition === -1) {
+        newPosition = 99;
+        if (i !== dialOperation.number - 1 && i !== MIN_POSITION) {
+          positions.push(0);
+        }
+      } else if (newPosition === MODULO) {
+        newPosition = 0;
+        if (i !== dialOperation.number - 1 && i !== MIN_POSITION) {
+          positions.push(0);
+        }
+      }
     }
-    positions.push(...Array(Math.floor(howManyZeroPoints)).fill(0));
-
-    currentPosition = (dialOperation.direction === RotationDirection.Left)? (MODULO + (currentPosition - (dialOperation.number % MODULO))) % MODULO : (currentPosition + dialOperation.number) % MODULO;
-
-    positions.push(currentPosition);
+    currentPosition = newPosition;
+    positions.push(newPosition);
   });
-
   return positions;
 };
 

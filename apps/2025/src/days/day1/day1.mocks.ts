@@ -50,13 +50,13 @@ const dialOperations = [
   },
 ];
 
-const partiallySecondStarResult = [50, 0, 52, 0, 95, 0, 0, 99, 0, 14, 0];
+const partiallySecondStarResult = [50, 0, 82, 52, 0, 95, 0, 55, 0, 99, 0, 14, 0, 32];
 
 const finallySecondStarResult = 6;
 
 export const day1Mocks = {
   inputData,
-  dialOperation: dialOperations,
+  dialOperations: dialOperations,
   firstStar: {
     partiallyResult: partiallyFirstStarResult,
     finallyResult: finallyFirstStarResult,
