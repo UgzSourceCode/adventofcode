@@ -48,6 +48,27 @@ This project uses a small, opinionated toolchain focused on fast feedback and si
 
 This section describes how to get the monorepo ready to run Advent of Code solutions locally: installing dependencies, running tests, and executing solutions for specific days.
 
+### Configure .env
+
+Copy `.env.example` to `.env`.
+
+```bash
+cp .env.example .env
+```
+
+#### Get AOC_SESSION Token
+
+- Go to any input page: https://adventofcode.com/2025/day/1/input
+- Open DevTools → Application / Storage → Cookies
+- Copy the session cookie value (full token)
+- Paste into .env:
+
+```text
+AOC_SESSION=paste_your_full_session_token_here
+```
+
+⚠️ Never commit .env – it's already in .gitignore.
+
 ### Dependency install
 
 - Make sure you have Node.js (18 or newer) and pnpm installed.
