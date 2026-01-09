@@ -1,5 +1,5 @@
-import { getInputFromAdventOfCode } from "@aoc/aoc-utils";
-import { type DialOperation, RotationDirection } from "./day1.types";
+import {getInputFromAdventOfCode} from "@aoc/aoc-utils";
+import {type DialOperation, RotationDirection} from "./day1.types";
 
 const INPUT_LINK = "https://adventofcode.com/2025/day/1/input";
 
@@ -11,9 +11,10 @@ export const day1 = async () => {
 };
 
 const INITIAL_POSITION = 50;
+const STEP = 1;
 const MIN_POSITION = 0;
 const MAX_POSITION = 99;
-const MODULO = MAX_POSITION + 1;
+const MODULO = MAX_POSITION + STEP;
 
 export const readDataFromString = (data: string): DialOperation[] => {
   return data
@@ -63,27 +64,23 @@ export const calculatePositionsWithAdditionalZeroPoint = (dialOperations: DialOp
 
   dialOperations.forEach((dialOperation) => {
     let newPosition = currentPosition;
-    for (let i = 0; i < dialOperation.number; i += 1) {
+    for (let i = 0; i < dialOperation.number; i += STEP) {
       if (dialOperation.direction === RotationDirection.Left) {
         newPosition -= 1;
       } else {
         newPosition += 1;
       }
 
-      if (newPosition === -1) {
-        newPosition = 99;
-        if (i !== dialOperation.number - 1 && i !== MIN_POSITION) {
-          positions.push(0);
-        }
+      if (newPosition === (MIN_POSITION - STEP)) {
+        newPosition = MAX_POSITION;
       } else if (newPosition === MODULO) {
-        newPosition = 0;
-        if (i !== dialOperation.number - 1 && i !== MIN_POSITION) {
-          positions.push(0);
-        }
+        newPosition = MIN_POSITION;
+      }
+      if (newPosition === MIN_POSITION || i === (dialOperation.number - STEP)) {
+        positions.push(newPosition);
       }
     }
     currentPosition = newPosition;
-    positions.push(newPosition);
   });
   return positions;
 };
