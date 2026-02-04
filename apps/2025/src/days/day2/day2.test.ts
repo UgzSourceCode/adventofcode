@@ -25,7 +25,7 @@ describe("Tests for day 2", () => {
     expect(ranges).toStrictEqual(mocks.ranges);
   });
 
-  it.each(day2Mocks.wrongIds)("Should be wrong id for %s", (input) => {
+  it.each(day2Mocks.firstStar.partial)("Should be wrong id for %s in first star way", (input) => {
     const isWrong = checkIsNotCorrectId(input);
     expect(isWrong).toBe(true);
   });
