@@ -9,6 +9,22 @@ export const day3 = async () => {
   console.log(`Result for second star is '${secondStar(inputData)}'.`);
 };
 
+export const readBanksString = (_data: string): string[] => {
+  throw new Error("Not implemented");
+};
+
+export const analysisBank = (_bank: string): number => {
+  throw new Error("Not implemented");
+};
+
+export const foundLargestJoltages = (_banks: string[]): number[] => {
+  throw new Error("Not implemented");
+};
+
+export const sumJoltage = (_joltages: number[]) => {
+  throw new Error("Not implemented");
+};
+
 const firstStar = (_data: string): number => {
   throw new Error("Not implemented.");
 };
