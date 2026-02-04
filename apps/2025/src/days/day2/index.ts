@@ -31,7 +31,6 @@ export const parseStringRangesToObject = (stringRanges: string[]) => {
 export const checkIsNotCorrectId = (id: number): boolean => {
   const str = id.toString();
   if (str.length % 2 !== 0) {
-
     return false;
   }
   const half = str.length / 2;
@@ -39,11 +38,9 @@ export const checkIsNotCorrectId = (id: number): boolean => {
   const firstPart = str.slice(0, half);
   const secondPart = str.slice(half);
   return firstPart === secondPart;
-
 };
 
 export const findWrongIds = (ranges: Range[]) => {
-
   const wrongIds: number[] = [];
   for (const range of ranges) {
     for (let i = range.low; i <= range.high; i++) {
@@ -70,6 +67,10 @@ export const firstStar = (data: string): number => {
   const sum = sumOfWrongsIds(wrongIds);
 
   return sum;
+};
+
+export const checkIsRepeatedSequenceId = (_id: number): boolean => {
+  throw new Error("Not implemented.");
 };
 
 export const secondStar = (_data: string): number => {

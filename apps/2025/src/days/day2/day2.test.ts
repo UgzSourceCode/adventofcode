@@ -1,7 +1,8 @@
-import { beforeEach, describe, expect, test, it } from "vitest";
+import { beforeEach, describe, expect, it, test } from "vitest";
 import { day2Mocks } from "./day2.mocks";
 import {
   checkIsNotCorrectId,
+  checkIsRepeatedSequenceId,
   findWrongIds,
   parseStringRangesToObject,
   readStringRangesFromInputString,
@@ -27,6 +28,11 @@ describe("Tests for day 2", () => {
 
   it.each(day2Mocks.firstStar.partial)("Should be wrong id for %s in first star way", (input) => {
     const isWrong = checkIsNotCorrectId(input);
+    expect(isWrong).toBe(true);
+  });
+
+  it.each(day2Mocks.secondStar.partial)("Should be wrong id for %s in seconds way", (input) => {
+    const isWrong = checkIsRepeatedSequenceId(input);
     expect(isWrong).toBe(true);
   });
 

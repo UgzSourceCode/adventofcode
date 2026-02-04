@@ -67,7 +67,9 @@ const ranges: Range[] = [
 ];
 
 const partialFirstStarResult = [11, 22, 99, 1010, 1188511885, 222222, 446446, 38593859];
-const partialSecondStarResult: number[] = [11, 22, 99, 111, 999, 1010, 1188511885, 222222, 446446, 38593859, 565656, 824824824, 2121212121];
+const partialSecondStarResult: number[] = [
+  11, 22, 99, 111, 999, 1010, 1188511885, 222222, 446446, 38593859, 565656, 824824824, 2121212121,
+];
 
 const finallyFirstStarResult = 1227775554;
 const finallySecondStarResult = 4174379265;

@@ -1,5 +1,5 @@
-import {getInputFromAdventOfCode} from "@aoc/aoc-utils";
-import {type DialOperation, RotationDirection} from "./day1.types";
+import { getInputFromAdventOfCode } from "@aoc/aoc-utils";
+import { type DialOperation, RotationDirection } from "./day1.types";
 
 const INPUT_LINK = "https://adventofcode.com/2025/day/1/input";
 
@@ -71,12 +71,12 @@ export const calculatePositionsWithAdditionalZeroPoint = (dialOperations: DialOp
         newPosition += 1;
       }
 
-      if (newPosition === (MIN_POSITION - STEP)) {
+      if (newPosition === MIN_POSITION - STEP) {
         newPosition = MAX_POSITION;
       } else if (newPosition === MODULO) {
         newPosition = MIN_POSITION;
       }
-      if (newPosition === MIN_POSITION || i === (dialOperation.number - STEP)) {
+      if (newPosition === MIN_POSITION || i === dialOperation.number - STEP) {
         positions.push(newPosition);
       }
     }
