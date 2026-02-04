@@ -1,6 +1,12 @@
-import { beforeEach, describe, expect, test } from "vitest";
+import { beforeEach, describe, expect, test, it } from "vitest";
 import { day2Mocks } from "./day2.mocks";
-import {findWrongIds, parseStringRangesToObject, readStringRangesFromInputString, sumOfWrongsIds} from "./index";
+import {
+  checkIsNotCorrectId,
+  findWrongIds,
+  parseStringRangesToObject,
+  readStringRangesFromInputString,
+  sumOfWrongsIds,
+} from "./index";
 
 describe("Tests for day 2", () => {
   let mocks: typeof day2Mocks;
@@ -17,6 +23,11 @@ describe("Tests for day 2", () => {
   test("Should parse string ranges to objects range", () => {
     const ranges = parseStringRangesToObject(mocks.stringRanges);
     expect(ranges).toStrictEqual(mocks.ranges);
+  });
+
+  it.each(day2Mocks.wrongIds)("Should be wrong id for %s", (input) => {
+    const isWrong = checkIsNotCorrectId(input);
+    expect(isWrong).toBe(true);
   });
 
   test("Should find wrong ids", () => {
