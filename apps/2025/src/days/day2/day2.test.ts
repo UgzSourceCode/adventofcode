@@ -36,9 +36,14 @@ describe("Tests for day 2", () => {
     expect(isWrong).toBe(true);
   });
 
-  test("Should find wrong ids", () => {
-    const ids = findWrongIds(mocks.ranges);
+  test("Should find wrong ids for first star", () => {
+    const ids = findWrongIds(mocks.ranges, checkIsNotCorrectId);
     expect(ids).toStrictEqual(mocks.firstStar.partial);
+  });
+
+  test("Should find wrong ids for second star", () => {
+    const ids = findWrongIds(mocks.ranges, checkIsRepeatedSequenceId);
+    expect(ids).toStrictEqual(mocks.secondStar.partial);
   });
 
   test("Should calc sum of wrong ids", () => {

@@ -40,11 +40,11 @@ export const checkIsNotCorrectId = (id: number): boolean => {
   return firstPart === secondPart;
 };
 
-export const findWrongIds = (ranges: Range[]) => {
+export const findWrongIds = (ranges: Range[], checkCallback: (id: number) => boolean) => {
   const wrongIds: number[] = [];
   for (const range of ranges) {
     for (let i = range.low; i <= range.high; i++) {
-      if (checkIsNotCorrectId(i)) {
+      if (checkCallback(i)) {
         wrongIds.push(i);
       }
     }
@@ -53,26 +53,41 @@ export const findWrongIds = (ranges: Range[]) => {
 };
 
 export const sumOfWrongsIds = (ids: number[]) => {
-  const sum = ids.reduce((previousValue, currentValue) => {
+  return ids.reduce((previousValue, currentValue) => {
     return previousValue + currentValue;
   }, 0);
-
-  return sum;
 };
 
 export const firstStar = (data: string): number => {
   const idsAsString = readStringRangesFromInputString(data);
   const ranges = parseStringRangesToObject(idsAsString);
-  const wrongIds = findWrongIds(ranges);
-  const sum = sumOfWrongsIds(wrongIds);
-
-  return sum;
+  const wrongIds = findWrongIds(ranges, checkIsNotCorrectId);
+  return sumOfWrongsIds(wrongIds);
 };
 
-export const checkIsRepeatedSequenceId = (_id: number): boolean => {
-  throw new Error("Not implemented.");
+export const checkIsRepeatedSequenceId = (id: number): boolean => {
+  const str = id.toString();
+  const len = str.length;
+
+  for (let patternLen = 1; patternLen <= Math.floor(len / 2); patternLen++) {
+    if (len % patternLen !== 0) continue;
+
+    const pattern = str.slice(0, patternLen);
+    const repeats = len / patternLen;
+
+    if (repeats < 2) continue;
+
+    if (pattern.repeat(repeats) === str) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
-export const secondStar = (_data: string): number => {
-  throw new Error("Not implemented.");
+export const secondStar = (data: string): number => {
+  const idsAsString = readStringRangesFromInputString(data);
+  const ranges = parseStringRangesToObject(idsAsString);
+  const wrongIds = findWrongIds(ranges, checkIsRepeatedSequenceId);
+  return sumOfWrongsIds(wrongIds);
 };
