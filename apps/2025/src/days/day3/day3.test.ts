@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, test } from "vitest";
 import { day3Mocks } from "./day3.mocks";
-import { analysisBank, foundLargestJoltages, readBanksString, sumJoltage } from "./index";
+import { analysisTwoDigitBank, foundLargestJoltages, readBanksString, sumJoltage } from "./index";
 
 describe("Test for day 3", () => {
   let mocks: typeof day3Mocks;
@@ -21,13 +21,13 @@ describe("Test for day 3", () => {
     [day3Mocks.banksData[3], day3Mocks.firstStar.partial[3]],
   ])("Should analysis largest joltages for bank %s", (bankData, largestJoltage) => {
     if (bankData && largestJoltage) {
-      const bankResult = analysisBank(bankData);
+      const bankResult = analysisTwoDigitBank(bankData);
       expect(bankResult).toBe(largestJoltage);
     }
   });
 
-  test("Should found largest joltages", () => {
-    const largestJoltages = foundLargestJoltages(mocks.banksData);
+  test("Should found largest joltages in first star", () => {
+    const largestJoltages = foundLargestJoltages(mocks.banksData, analysisTwoDigitBank);
     expect(largestJoltages).toStrictEqual(mocks.firstStar.partial);
   });
 

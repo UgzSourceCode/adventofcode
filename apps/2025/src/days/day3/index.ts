@@ -13,7 +13,7 @@ export const readBanksString = (data: string): string[] => {
   return data.split("\n").filter((line) => line.length > 0);
 };
 
-export const analysisBank = (bank: string): number => {
+export const analysisTwoDigitBank = (bank: string): number => {
   let firstDigit: number | undefined;
   let secondDigit: number | undefined;
 
@@ -33,8 +33,11 @@ export const analysisBank = (bank: string): number => {
   throw new Error(`Bank ${bank} is not a valid input.`);
 };
 
-export const foundLargestJoltages = (banks: string[]): number[] => {
-  return banks.map((bank) => analysisBank(bank));
+export const foundLargestJoltages = (
+  banks: string[],
+  analysisCallback: (bank: string) => number,
+): number[] => {
+  return banks.map((bank) => analysisCallback(bank));
 };
 
 export const sumJoltage = (joltages: number[]) => {
@@ -43,7 +46,7 @@ export const sumJoltage = (joltages: number[]) => {
 
 const firstStar = (data: string): number => {
   const banksData = readBanksString(data);
-  const joltages = foundLargestJoltages(banksData);
+  const joltages = foundLargestJoltages(banksData, analysisTwoDigitBank);
   return sumJoltage(joltages);
 };
 
