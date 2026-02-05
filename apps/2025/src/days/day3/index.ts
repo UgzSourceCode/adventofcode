@@ -33,8 +33,29 @@ export const analysisTwoDigitBank = (bank: string): number => {
   throw new Error(`Bank ${bank} is not a valid input.`);
 };
 
-export const analysisTwelveDigitBank = (_bank: string): number => {
-  throw new Error("Not implemented.");
+export const analysisTwelveDigitBank = (bank: string): number => {
+  const targetLength = 12;
+  const digitsToRemove = bank.length - targetLength;
+
+  if (digitsToRemove < 0) {
+    throw new Error("Bank has less than 12 digits.");
+  }
+
+  const stack: string[] = [];
+  let removeLeft = digitsToRemove;
+
+  for (const digit of bank) {
+    while (removeLeft > 0 && stack.length > 0 && stack.at(-1) < digit) {
+      stack.pop();
+      removeLeft--;
+    }
+
+    stack.push(digit);
+  }
+
+  const resultDigits = stack.slice(0, targetLength);
+
+  return Number(resultDigits.join(""));
 };
 
 export const foundLargestJoltages = (
@@ -54,6 +75,8 @@ const firstStar = (data: string): number => {
   return sumJoltage(joltages);
 };
 
-const secondStar = (_data: string): number => {
-  throw new Error("Not implemented.");
+const secondStar = (data: string): number => {
+  const banksData = readBanksString(data);
+  const joltages = foundLargestJoltages(banksData, analysisTwelveDigitBank);
+  return sumJoltage(joltages);
 };
