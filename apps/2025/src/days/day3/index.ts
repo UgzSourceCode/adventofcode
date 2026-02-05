@@ -33,6 +33,10 @@ export const analysisTwoDigitBank = (bank: string): number => {
   throw new Error(`Bank ${bank} is not a valid input.`);
 };
 
+export const analysisTwelveDigitBank = (_bank: string): number => {
+  throw new Error("Not implemented.");
+};
+
 export const foundLargestJoltages = (
   banks: string[],
   analysisCallback: (bank: string) => number,

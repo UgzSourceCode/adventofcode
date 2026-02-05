@@ -19,5 +19,5 @@ export const day3Mocks = {
   secondStar: {
     partial: partialSecondStarResult,
     finallyResult: finallySecondStarResult,
-  }
+  },
 };
