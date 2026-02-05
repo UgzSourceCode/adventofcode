@@ -45,7 +45,8 @@ export const analysisTwelveDigitBank = (bank: string): number => {
   let removeLeft = digitsToRemove;
 
   for (const digit of bank) {
-    while (removeLeft > 0 && stack.length > 0 && stack.at(-1) < digit) {
+    // biome-ignore lint/style/noNonNullAssertion: it was checked before but ts show issue
+    while (removeLeft > 0 && stack.length > 0 && stack.at(-1)! < digit) {
       stack.pop();
       removeLeft--;
     }
