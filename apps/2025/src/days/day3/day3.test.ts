@@ -19,7 +19,7 @@ describe("Test for day 3", () => {
     [day3Mocks.banksData[1], day3Mocks.firstStar.partial[1]],
     [day3Mocks.banksData[2], day3Mocks.firstStar.partial[2]],
     [day3Mocks.banksData[3], day3Mocks.firstStar.partial[3]],
-  ])("Should analysis largest joltages for bank %p", (bankData, largestJoltage) => {
+  ])("Should analysis largest joltages for bank %s", (bankData, largestJoltage) => {
     if (bankData && largestJoltage) {
       const bankResult = analysisBank(bankData);
       expect(bankResult).toBe(largestJoltage);

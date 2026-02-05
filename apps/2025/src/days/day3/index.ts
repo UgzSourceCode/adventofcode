@@ -9,24 +9,42 @@ export const day3 = async () => {
   console.log(`Result for second star is '${secondStar(inputData)}'.`);
 };
 
-export const readBanksString = (_data: string): string[] => {
-  throw new Error("Not implemented");
+export const readBanksString = (data: string): string[] => {
+  return data.split("\n").filter((line) => line.length > 0);
 };
 
-export const analysisBank = (_bank: string): number => {
-  throw new Error("Not implemented");
+export const analysisBank = (bank: string): number => {
+  let firstDigit: number | undefined;
+  let secondDigit: number | undefined;
+
+  for (let i = 0; i < bank.length; i++) {
+    const currentDigit = Number(bank[i]);
+    if ((!firstDigit || firstDigit < currentDigit) && i < bank.length - 1) {
+      firstDigit = currentDigit;
+      secondDigit = Number(bank[i + 1]);
+    } else if (secondDigit && secondDigit < currentDigit) {
+      secondDigit = currentDigit;
+    }
+  }
+
+  if (firstDigit && secondDigit) {
+    return Number(String(firstDigit) + String(secondDigit));
+  }
+  throw new Error(`Bank ${bank} is not a valid input.`);
 };
 
-export const foundLargestJoltages = (_banks: string[]): number[] => {
-  throw new Error("Not implemented");
+export const foundLargestJoltages = (banks: string[]): number[] => {
+  return banks.map((bank) => analysisBank(bank));
 };
 
-export const sumJoltage = (_joltages: number[]) => {
-  throw new Error("Not implemented");
+export const sumJoltage = (joltages: number[]) => {
+  return joltages.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 };
 
-const firstStar = (_data: string): number => {
-  throw new Error("Not implemented.");
+const firstStar = (data: string): number => {
+  const banksData = readBanksString(data);
+  const joltages = foundLargestJoltages(banksData);
+  return sumJoltage(joltages);
 };
 
 const secondStar = (_data: string): number => {
