@@ -1,7 +1,9 @@
-export const getDayManager = () => {
-  const days: (() => Promise<void>)[] = [];
+import type {DayMethod} from "./dayManager.types";
 
-  const addDay = (day: () => Promise<void>) => {
+export const getDayManager = () => {
+  const days: DayMethod[] = [];
+
+  const addDay = (day: DayMethod) => {
     days.push(day);
   };
 
